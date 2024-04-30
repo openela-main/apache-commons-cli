@@ -2,7 +2,7 @@
 
 Name:           apache-commons-cli
 Version:        1.5.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Command Line Interface Library for Java
 License:        ASL 2.0
 URL:            http://commons.apache.org/cli/
@@ -43,6 +43,9 @@ command line arguments and options.
 %doc README.md RELEASE-NOTES.txt
 
 %changelog
+* Mon Feb 05 2024 Mikolaj Izdebski <mizdebsk@redhat.com> - 1.5.0-5
+- Rebuild to regenerate auto-requires
+
 * Wed Jul 20 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.5.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
