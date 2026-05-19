@@ -1,24 +1,27 @@
 %bcond_with bootstrap
 
 Name:           apache-commons-cli
-Version:        1.6.0
-Release:        6%{?dist}
+Version:        1.9.0
+Release:        1%{?dist}
 Summary:        Command Line Interface Library for Java
 License:        Apache-2.0
-URL:            http://commons.apache.org/cli/
+URL:            https://commons.apache.org/proper/commons-cli/
 BuildArch:      noarch
 ExclusiveArch:  %{java_arches} noarch
 
-Source0:        http://www.apache.org/dist/commons/cli/source/commons-cli-%{version}-src.tar.gz
+Source0:        https://www.apache.org/dist/commons/cli/source/commons-cli-%{version}-src.tar.gz
 
 %if %{with bootstrap}
 BuildRequires:  javapackages-bootstrap
 %else
 BuildRequires:  maven-local
+BuildRequires:  mvn(commons-io:commons-io)
 BuildRequires:  mvn(org.apache.commons:commons-parent:pom:)
 BuildRequires:  mvn(org.apache.maven.plugins:maven-antrun-plugin)
 BuildRequires:  mvn(org.junit.jupiter:junit-jupiter-api)
-BuildRequires:  mvn(org.junit.vintage:junit-vintage-engine)
+BuildRequires:  mvn(org.junit.jupiter:junit-jupiter-engine)
+BuildRequires:  mvn(org.junit.jupiter:junit-jupiter-params)
+BuildRequires:  mvn(org.mockito:mockito-core)
 %endif
 
 %description
@@ -45,6 +48,9 @@ command line arguments and options.
 %doc README.md RELEASE-NOTES.txt
 
 %changelog
+* Thu Jul 31 2025 Marián Konček <mkoncek@redhat.com> - 1.9.0-1
+- Update to upstream version 1.9.0
+
 * Tue Oct 29 2024 Troy Dawson <tdawson@redhat.com> - 1.6.0-6
 - Bump release for October 2024 mass rebuild:
   Resolves: RHEL-64018
